@@ -65,7 +65,7 @@ int APS5_VABI sceAudioOutMasteringTerm(void) {
 
 int APS5_VABI sceAudioOutMasteringGetState(AudioOut2MasteringStatesHeader* state) {
     if (state == nullptr) APS5_INVALID_ARG_EX;
-    if (state->states_id != AUDIO_OUT_MASTERING_STATES_ID_DEFAULT) NotImplemented_nid_no_patch(__func__);
+    if (state->states_id != AUDIO_OUT_MASTERING_STATES_ID_DEFAULT) APS5_INVALID_ARG_EX;
     auto* full = static_cast<AudioOut2MasteringStates*>(static_cast<void*>(state));
     std::memset(full->compressor_states.input_rms, 0, sizeof(full->compressor_states.input_rms));
     std::memset(full->compressor_states.compression_coeff, 0, sizeof(full->compressor_states.compression_coeff));
